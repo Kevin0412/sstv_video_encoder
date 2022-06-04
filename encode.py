@@ -26,7 +26,7 @@ def encode(img,frame,num):
                 pixel=num*2560+(39-p)*64+l
                 img[int(pixel/960),pixel%320,a[int((pixel%960)/320)]]=255
 while rval:
-    if (n % timeF == 0 and rval and i <96):
+    if (n % timeF == timeF-1 and rval and i <96):
         frame=cv2.resize(frame,(64,40))
         #frame=cv2.Canny(frame,100,200)
         frame=np.where(frame[:,:,0]*0.114+frame[:,:,1]*0.587+frame[:,:,2]*0.114>127.5,255,0)
